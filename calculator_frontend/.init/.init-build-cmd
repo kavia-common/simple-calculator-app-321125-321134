@@ -1,0 +1,9 @@
+{ "working_directory": "/home/kavia/workspace/code-generation",
+ "command": "#!/usr/bin/env bash
+set -euo pipefail
+WORKSPACE="/home/kavia/workspace/code-generation/simple-calculator-app-321125-321134/calculator_frontend"
+cd "$WORKSPACE"
+command -v swift >/dev/null 2>&1 || { echo "ERROR: swift CLI missing" >&2; exit 2; }
+if [ "${SWIFT_DISABLE_SANDBOX:-0}" = "1" ]; then swift build --disable-sandbox; else swift build; fi
+echo "Build completed. Artifacts: $WORKSPACE/.build"
+" }
